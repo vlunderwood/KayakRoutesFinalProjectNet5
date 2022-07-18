@@ -2,9 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using KayakRoutesFinalProject.Models;
 
-namespace RouteList.Controllers
+namespace RouteList.Areas.Admin.Controllers
 {
-    [Area("Admin")]
     public class RouteController : Controller
     {
         private RouteContext context { get; set; }

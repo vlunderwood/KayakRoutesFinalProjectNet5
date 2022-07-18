@@ -25,7 +25,17 @@ namespace KayakRoutesFinalProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddMemoryCache(); 
+            services.AddSession();
+            services.AddSession(options => {
+                // change idle timeout to 5 minutes - default is 20 minutes
+                options.IdleTimeout = TimeSpan.FromSeconds(60 * 5); 
+                options.Cookie.HttpOnly = false;
+                // default is true
+                options.Cookie.IsEssential = true;
+                // default is false
+                });
+                services.AddControllersWithViews();
             services.AddDbContext<RouteContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("RouteContext")));
@@ -46,16 +56,23 @@ namespace KayakRoutesFinalProject
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
+            app.UseSession();
+
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.MapAreaControllerRoute(
+                    name: "admin",
+                    areaName: "Admin",
+                    pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}/{slug?}");
+                
             });
         }
     }

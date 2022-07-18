@@ -1,9 +1,9 @@
 ﻿@model List<Route>
 @{
-    ViewBag.Title = "Kayak Routes";
+    ViewBag.Title = "Admin";
 }
 
-<h2>Kayak Routes</h2>
+<h2>Admin</h2>
 <a asp-controller="Route" asp-action="Add">Add New Route</a>
 <table class="table table-hover">
     <thead>
@@ -22,9 +22,6 @@
             <td>@route.Location</td>
             <td>@route.Level</td>
             <td>@route.Rating</td>
-            @if (ViewBag.AccessLevel >= 5)
-                {
-
             <td>
                 <a asp-controller="Route" asp-action="Edit"
                asp-route-id="@route.RouteId"
@@ -34,10 +31,7 @@
                asp-route-id="@route.RouteId"
                asp-route-slug="@route.Slug"
                class="btn btn-primary">Delete</a>
-            </td>
-
-                }
-            
+            </td>            
         </tr>
         }
     </tbody>

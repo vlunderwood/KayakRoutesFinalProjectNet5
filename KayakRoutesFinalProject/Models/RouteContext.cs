@@ -4,14 +4,14 @@ namespace KayakRoutesFinalProject.Models
 {
     public class RouteContext : DbContext
     {
-        public RouteContext(DbContextOptions<RouteContext> options)
-                : base(options)
+        public RouteContext(DbContextOptions<RouteContext> options) : base(options)
         { }
 
         public DbSet<Route> Routes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Route>().HasData(
                 new Route
                 {
@@ -39,8 +39,7 @@ namespace KayakRoutesFinalProject.Models
                     Level = "High",
                     Rating = 5,
 
-                }
-                );
+                });
 
 
         }
