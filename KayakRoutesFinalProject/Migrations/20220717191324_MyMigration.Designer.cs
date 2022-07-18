@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KayakRoutesFinalProject.Migrations
 {
     [DbContext(typeof(RouteContext))]
-    [Migration("20220701152236_Initial")]
-    partial class Initial
+    [Migration("20220717191324_MyMigration")]
+    partial class MyMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,10 @@ namespace KayakRoutesFinalProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Level")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -35,6 +39,10 @@ namespace KayakRoutesFinalProject.Migrations
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("Miles")
+                        .IsRequired()
+                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -44,6 +52,18 @@ namespace KayakRoutesFinalProject.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
+                    b.Property<string>("StartPoint")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StopPoint")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("RouteId");
 
                     b.ToTable("Routes");
@@ -52,26 +72,41 @@ namespace KayakRoutesFinalProject.Migrations
                         new
                         {
                             RouteId = 1,
-                            Level = "High",
+                            Date = "04/05/2022",
+                            Level = "Intermediate",
                             Location = "Skunk River",
+                            Miles = 2.0,
                             Name = "Val",
-                            Rating = 5
+                            Rating = 5,
+                            StartPoint = "Anderson Access",
+                            StopPoint = "Sleepy Hollow Access",
+                            Type = "River"
                         },
                         new
                         {
                             RouteId = 2,
-                            Level = "Low",
-                            Location = "Chariton River",
+                            Date = "06/23/2022",
+                            Level = "Advanced",
+                            Location = "Raccoon River",
+                            Miles = 4.0,
                             Name = "Noah",
-                            Rating = 5
+                            Rating = 5,
+                            StartPoint = "City Park Access",
+                            StopPoint = "White Horse Access",
+                            Type = "River"
                         },
                         new
                         {
                             RouteId = 3,
-                            Level = "High",
+                            Date = "05/10/2022",
+                            Level = "Intermediate",
                             Location = "Des Moines River",
+                            Miles = 3.0,
                             Name = "Alexander",
-                            Rating = 5
+                            Rating = 5,
+                            StartPoint = "Skillet Creek Access",
+                            StopPoint = "North Fraser Access",
+                            Type = "River"
                         });
                 });
 #pragma warning restore 612, 618
