@@ -5,8 +5,12 @@
 }
 
 <h2>@title</h2>
-
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/contactname.js"></script>
 <form asp-action="Edit" method="post">
+
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="form-group">
@@ -17,6 +21,31 @@
     <div class="form-group">
         <label asp-for="Location">Location</label>
         <input asp-for="Location" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StartPoint">Start Point</label>
+        <input asp-for="StartPoint" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StopPoint">Stop Point</label>
+        <input asp-for="StopPoint" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Type">Water Type</label>
+        <input asp-for="Type" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Miles">Miles</label>
+        <input asp-for="Miles" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Date">Date</label>
+        <input asp-for="Date" class="form-control">
     </div>
 
     <div class="form-group">

@@ -56,9 +56,8 @@ namespace KayakRoutesFinalProject
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseRouting();
-            app.UseSession();
 
+            app.UseRouting();
 
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
@@ -68,6 +67,14 @@ namespace KayakRoutesFinalProject
                     name: "admin",
                     areaName: "Admin",
                     pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "gear",
+                    pattern: "{controller=Gear}/{action=Index}/{id?}/{slug?}");
+
+                endpoints.MapControllerRoute(
+                    name: "group",
+                    pattern: "{controller=Group}/{action=Index}/{id?}/{slug?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

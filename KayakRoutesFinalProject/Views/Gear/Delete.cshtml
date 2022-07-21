@@ -1,0 +1,14 @@
+﻿@model Gear
+@{
+    ViewBag.Title = "Delete Gear";
+}
+
+<h2>Confirm Deletion</h2>
+<h3>@Model.Contact (@Model.Description)</h3>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="GearId" />
+
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Gear" asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+</form>
