@@ -2,10 +2,6 @@
 @{
     ViewBag.Title = "Kayak Routes";
 }
-@section scripts {
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script> <script src="~/lib/jquery-validation-unobtrusive/
-jquery.validate.unobtrusive.min.js"></script>
-}
 
 <h2>Kayak Routes</h2>
 <a asp-controller="Route" asp-action="Add">Add New Route</a>
@@ -14,8 +10,13 @@ jquery.validate.unobtrusive.min.js"></script>
         <tr>
             <th>Name</th>
             <th>Location</th>
-            <th>Level</th>
-            <th>Rating</th>
+            <th>Start Point</th>
+            <th>Stop Point</th>
+            <th>Water Type</th>
+            <th>Miles</th>
+            <th>Date</th>
+            <th>Route Level</th>
+            <th>Rating (1-5) 5 is best</th>
             <th></th>
         </tr>
     </thead>
@@ -24,27 +25,24 @@ jquery.validate.unobtrusive.min.js"></script>
         <tr>
             <td>@route.Name</td>
             <td>@route.Location</td>
+            <td>@route.StartPoint</td>
+            <td>@route.StopPoint</td>
+            <td>@route.Type</td>
+            <td>@route.Miles</td>
+            <td>@route.Date</td>
             <td>@route.Level</td>
             <td>@route.Rating</td>
-            @if (ViewBag.AccessLevel >= 5)
-                {
-
             <td>
                 <a asp-controller="Route" asp-action="Edit"
-               asp-route-id="@route.RouteId"
-               asp-route-slug="@route.Slug"
-               class="btn btn-primary">Edit</a>
+                   asp-route-id="@route.RouteId"
+                   asp-route-slug="@route.Slug"
+                   class="btn btn-primary">Edit</a>
                 <a asp-controller="Route" asp-action="Delete"
-               asp-route-id="@route.RouteId"
-               asp-route-slug="@route.Slug"
-               class="btn btn-primary">Delete</a>
+                   asp-route-id="@route.RouteId"
+                   asp-route-slug="@route.Slug"
+                   class="btn btn-primary">Delete</a>
             </td>
-
-                }
-            
         </tr>
         }
     </tbody>
 </table>
-
-

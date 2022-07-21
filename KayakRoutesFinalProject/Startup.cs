@@ -39,6 +39,12 @@ namespace KayakRoutesFinalProject
             services.AddDbContext<RouteContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("RouteContext")));
+            services.AddDbContext<GroupContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("GroupContext")));
+            services.AddDbContext<GearContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("GearContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,13 +74,6 @@ namespace KayakRoutesFinalProject
                     areaName: "Admin",
                     pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 
-                endpoints.MapControllerRoute(
-                    name: "gear",
-                    pattern: "{controller=Gear}/{action=Index}/{id?}/{slug?}");
-
-                endpoints.MapControllerRoute(
-                    name: "group",
-                    pattern: "{controller=Group}/{action=Index}/{id?}/{slug?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

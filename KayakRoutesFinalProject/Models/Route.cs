@@ -6,7 +6,7 @@ namespace KayakRoutesFinalProject.Models
 {
     public class Route
     {
-        // EF will instruct the database to automatically generate this value
+        
         public int RouteId { get; set; }
 
         [contactname]
@@ -39,9 +39,6 @@ namespace KayakRoutesFinalProject.Models
         [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5. 1 being lowest and 5 being highest.")]
         public int? Rating { get; set; }
        
-
-
-
 
         public string Slug =>
             Name?.Replace(' ', '-').ToLower() + '-' + Location?.ToString();

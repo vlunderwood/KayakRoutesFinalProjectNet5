@@ -16,7 +16,7 @@ namespace KayakRoutesFinalProject.Controllers
         public IActionResult Index()
         {
             var groups = context.Groups.OrderBy(m => m.Contact).ToList();
-            return View(groups);
+            return View("Index" ,groups);
         }
 
         [HttpGet]

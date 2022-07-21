@@ -21,8 +21,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>*@
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="GroupFloat" asp-action="GroupFloat">Group Floats</a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Group" asp-action="Group">Group Floats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Gear" asp-action="Gear">Buy/Sell Gear</a>
                         </li>
                     </ul>
                 </div>
@@ -34,7 +43,6 @@
             @RenderBody()
         </main>
     </div>
-   
 
     <footer class="border-top footer text-muted">
         <div class="container">
