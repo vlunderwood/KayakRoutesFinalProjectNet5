@@ -35,7 +35,7 @@ namespace KayakRoutesFinalProject
                 options.Cookie.IsEssential = true;
                 // default is false
                 });
-                services.AddControllersWithViews();
+                services.AddControllersWithViews().AddNewtonsoftJson();
             services.AddDbContext<RouteContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("RouteContext")));

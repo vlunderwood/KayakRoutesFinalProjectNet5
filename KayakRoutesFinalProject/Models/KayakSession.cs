@@ -7,6 +7,8 @@ namespace KayakRoutesFinalProject.Models
     {
         private const string RouteKey = "myroutes";
         private const string CountKey = "mycounts";
+        private const string GearKey = "mygear";
+        private const string GroupKey = "mygroup";
 
         private ISession session { get; set; }
         public KayakSession(ISession session)
@@ -22,6 +24,10 @@ namespace KayakRoutesFinalProject.Models
         public List<Route> GetMyRoutes() => session.GetObject<List<Route>>(RouteKey) ?? new List<Route>();
 
         public int GetMyRoutesCount() => session.GetInt32(CountKey) ?? 0;
+
+        public List<Gear> GeTMyGear() => session.GetObject<List<Gear>>(GearKey) ?? new List<Gear>();
+
+        public List<GroupFloat> GetMyGroup() => session.GetObject<List<GroupFloat>>(GroupKey) ?? new List<GroupFloat>();
 
         public void RemoveMyRoutes()
         {
