@@ -13,7 +13,7 @@ namespace KayakRoutesFinalProject.Areas.Admin.Controllers
         {
             context = ctx;
         }
-        [Route("[area]/[controller]s/{id}")]
+        [Route("[area]/Group/Group/{id?}")]
         public IActionResult Index()
         {
             var groups = context.Groups.OrderBy(m => m.Contact).ToList();

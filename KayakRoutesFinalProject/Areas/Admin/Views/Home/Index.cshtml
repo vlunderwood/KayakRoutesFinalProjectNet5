@@ -23,11 +23,11 @@
             <td>@route.Level</td>
             <td>@route.Rating</td>
             <td>
-                <a asp-controller="Route" asp-action="Edit"
+                <a asp-controller="Route" asp-action="Edit" asp-area="Admin"
                asp-route-id="@route.RouteId"
                asp-route-slug="@route.Slug"
                class="btn btn-primary">Edit</a>
-                <a asp-controller="Route" asp-action="Delete"
+                <a asp-controller="Route" asp-action="Delete" asp-area="Admin"
                asp-route-id="@route.RouteId"
                asp-route-slug="@route.Slug"
                class="btn btn-primary">Delete</a>

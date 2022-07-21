@@ -14,7 +14,7 @@ namespace KayakRoutesFinalProject.Areas.Admin.Controllers
         {
             context = ctx;
         }
-        [Route("[area]/[controller]s/{id?}")]
+        [Route("[area]/Gear/Gear/{id?}")]
         public IActionResult Index()
         {
             var gears = context.Gears.OrderBy(m => m.Contact).ToList();
