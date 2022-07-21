@@ -20,6 +20,15 @@ namespace RouteList.Controllers
             //ViewBag.Routes = context.Routes.OrderBy(g => g.Name).ToList();
             return View("Edit", new Route());
         }
+        
+        //added new for adding a new entity
+        [HttpGet]
+        public IActionResult Add(Route route)
+        {
+            context.Routes.Add(route);
+            context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
 
         [HttpGet]
         public IActionResult Edit(int id)
@@ -29,6 +38,7 @@ namespace RouteList.Controllers
             var route = context.Routes.Find(id);
             return View(route);
         }
+        
 
         [HttpPost]
         public IActionResult Edit(Route route)
@@ -36,11 +46,18 @@ namespace RouteList.Controllers
             if (ModelState.IsValid)
             {
                 if (route.RouteId == 0)
+                {
                     context.Routes.Add(route);
+                 
+                }
                 else
+                {
                     context.Routes.Update(route);
+                    
+                }
                 context.SaveChanges();
                 return RedirectToAction("Index", "Home");
+               
             }
             else
             {
@@ -64,6 +81,8 @@ namespace RouteList.Controllers
             context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+
+       
     }
 }
 
