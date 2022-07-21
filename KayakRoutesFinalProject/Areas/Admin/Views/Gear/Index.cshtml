@@ -25,11 +25,11 @@
             <td>@route.Condition</td>
             <td>@route.Price</td>
             <td>
-                <a asp-controller="Gear" asp-action="Edit"
+                <a asp-controller="Gear" asp-action="Edit" asp-area="Admin"
                    asp-route-id="@route.GearId"
                    asp-route-slug="@route.Slug"
                    class="btn btn-primary">Edit</a>
-                <a asp-controller="Gear" asp-action="Delete"
+                <a asp-controller="Gear" asp-action="Delete" asp-area="Admin"
                    asp-route-id="@route.GearId"
                    asp-route-slug="@route.Slug"
                    class="btn btn-primary">Delete</a>

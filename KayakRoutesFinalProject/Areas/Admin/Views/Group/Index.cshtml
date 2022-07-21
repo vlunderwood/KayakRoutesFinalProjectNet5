@@ -31,11 +31,11 @@
             <td>@route.Date</td>
             <td>@route.Time</td>
             <td>
-                <a asp-controller="Group" asp-action="Edit"
+                <a asp-controller="Group" asp-action="Edit" asp-area="Admin"
                    asp-route-id="@route.GroupId"
                    asp-route-slug="@route.Slug"
                    class="btn btn-primary">Edit</a>
-                <a asp-controller="Group" asp-action="Delete"
+                <a asp-controller="Group" asp-action="Delete" asp-area="Admin"
                    asp-route-id="@route.GroupId"
                    asp-route-slug="@route.Slug"
                    class="btn btn-primary">Delete</a>
