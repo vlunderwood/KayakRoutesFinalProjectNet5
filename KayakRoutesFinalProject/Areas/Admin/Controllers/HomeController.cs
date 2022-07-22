@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using KayakRoutesFinalProject.Models;
 
-namespace KayakFinalProject.Controllers
+namespace KayakFinalProject.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class HomeController : Controller
     {
         private RouteContext context { get; set; }
@@ -19,10 +20,8 @@ namespace KayakFinalProject.Controllers
             return View(routes);
         }
         
-        public IActionResult Details(string id)
+        public IActionResult Privacy()
         {
-            var session = new KayakSession(HttpContext.Session);
-
             return View();
         }
     }

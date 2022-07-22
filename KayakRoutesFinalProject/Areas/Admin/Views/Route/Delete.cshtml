@@ -1,0 +1,13 @@
+﻿@model Route
+@{
+    ViewBag.Title = "Delete Route";
+}
+
+<h2>Confirm Deletion</h2>
+<h3>@Model.Name (@Model.Level)</h3>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="RouteId" />
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+</form>

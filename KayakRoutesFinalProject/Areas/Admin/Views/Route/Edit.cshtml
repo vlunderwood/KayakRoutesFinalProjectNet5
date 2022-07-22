@@ -1,0 +1,38 @@
+﻿@model Route
+@{
+    string title = ViewBag.Action + " Route";
+    ViewBag.Title = title;
+}
+
+<h2>@title</h2>
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Location">Location</label>
+        <input asp-for="Location" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Level">Level</label>
+        <input asp-for="Level" class="form-control">
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Rating">Rating</label>
+        <input asp-for="Rating" class="form-control">
+    </div>
+
+    <input type="hidden" asp-for="RouteId" />
+
+    <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+</form>
+
+

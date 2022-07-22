@@ -1,0 +1,40 @@
+﻿@model List<Route>
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Admin</h2>
+<a asp-controller="Route" asp-action="Add">Add New Route</a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Level</th>
+            <th>Rating</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var route in Model) {
+        <tr>
+            <td>@route.Name</td>
+            <td>@route.Location</td>
+            <td>@route.Level</td>
+            <td>@route.Rating</td>
+            <td>
+                <a asp-controller="Route" asp-action="Edit" asp-area="Admin"
+               asp-route-id="@route.RouteId"
+               asp-route-slug="@route.Slug"
+               class="btn btn-primary">Edit</a>
+                <a asp-controller="Route" asp-action="Delete" asp-area="Admin"
+               asp-route-id="@route.RouteId"
+               asp-route-slug="@route.Slug"
+               class="btn btn-primary">Delete</a>
+            </td>            
+        </tr>
+        }
+    </tbody>
+</table>
+
+

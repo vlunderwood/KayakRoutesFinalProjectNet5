@@ -1,0 +1,14 @@
+﻿@model GroupFloat
+@{
+    ViewBag.Title = "Delete Group";
+}
+
+<h2>Confirm Deletion</h2>
+<h3>@Model.Contact (@Model.Location)</h3>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="GroupId" />
+
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Group" asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+</form>

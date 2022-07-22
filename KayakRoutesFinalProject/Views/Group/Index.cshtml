@@ -1,38 +1,37 @@
-﻿@model List<Route>
+﻿@model List<GroupFloat>
 @{
-    ViewBag.Title = "Kayak Routes";
+    ViewBag.Title = "Group Floats";
 }
 
-<h2>Kayak Routes</h2>
-<a asp-controller="Route" asp-action="Add">Add New Route</a>
+<h2>Group Floats and Meet and Greets!</h2>
+<a asp-controller="Group" asp-action="Add">Add New Float</a>
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Name</th>
+            <th>Contact</th>
+            <th>Phone</th>
             <th>Location</th>
             <th>Start Point</th>
             <th>Stop Point</th>
-            <th>Water Type</th>
-            <th>Miles</th>
+            <th>Description</th>
             <th>Date</th>
-            <th>Route Level</th>
-            <th>Rating (1-5) 5 is best</th>
+            <th>Time</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var route in Model) {
         <tr>
-            <td>@route.Name</td>
+            <td>@route.Contact</td>
+            <td>@route.Phone</td>
             <td>@route.Location</td>
             <td>@route.StartPoint</td>
             <td>@route.StopPoint</td>
-            <td>@route.Type</td>
-            <td>@route.Miles</td>
+            <td>@route.Description</td>
             <td>@route.Date</td>
-            <td>@route.Level</td>
-            <td>@route.Rating</td>
+            <td>@route.Time</td>
             <td>
+                
             </td>
         </tr>
         }

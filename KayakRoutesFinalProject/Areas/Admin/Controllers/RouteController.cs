@@ -1,11 +1,9 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using KayakRoutesFinalProject.Models;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace RouteList.Controllers
+namespace RouteList.Areas.Admin.Controllers
 {
-    
     public class RouteController : Controller
     {
         private RouteContext context { get; set; }
@@ -35,15 +33,6 @@ namespace RouteList.Controllers
         [HttpPost]
         public IActionResult Edit(Route route)
         {
-            string key = nameof(route.Name);
-            var val = ModelState.GetValidationState(key);
-            if (val == ModelValidationState.Valid)
-            {
-                if (route.Name == "Alex")
-                {
-                    ModelState.AddModelError(key, "Dont use this name");
-                }
-            }
             if (ModelState.IsValid)
             {
                 if (route.RouteId == 0)
